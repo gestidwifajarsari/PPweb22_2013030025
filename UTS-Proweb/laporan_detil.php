@@ -14,11 +14,13 @@ $row = $res->fetch_array(MYSQLI_BOTH);
 </head>
 <body>
 <h2>Detil Data</h2>
-<a href="add_penjual.php">TAMBAH</a> <a href="penjual.php">LIHAT</a>
+<a href="laporan_add.php">TAMBAH</a> <a href="laporan.php">LIHAT</a>
 <br>
-<form action="proc_penjual.php" method="post">
+<form action="laporan_proc.php" method="post">
 	ID<br>
 	<input type="text" name="id" value="<?php echo $row['id']?>"><br>
+	Warna<br>
+	<input type="text" name="warna" value="<?php echo $row['warna']?>"><br>
 	Nama<br>
 	<input type="text" name="nama" value="<?= $row['nama']?>"><br>
 	Jenis<br>
@@ -51,8 +53,6 @@ $row = $res->fetch_array(MYSQLI_BOTH);
 	</select><br>
 	Harga<br>
 	<input type="text" name="hpp" value="<?= $row['hpp']?>"><br>
-	warna<br>
-	<input type="text" name="warna" value="<?= $row['warna']?>"><br>
 	<input type="submit" name="proses" value="PERBAHARUI">
 	<input type="submit" name="proses" value="HAPUS" onclick="return confirm('Yakin Menghapus Data Ini?')">
 </form>

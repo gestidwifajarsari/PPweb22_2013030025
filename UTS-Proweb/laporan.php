@@ -11,10 +11,10 @@ include "koneksi.php";
 </head>
 <body>
     <h2>Laporan</h2>
-    <a href="add_penjual.php">TAMBAH</a>  <a href="penjual.php">LIHAT</a>
+    <a href="laporan_add.php">TAMBAH</a>  <a href="laporan.php">LIHAT</a>
     <br>
     <?php
-        $sql = "SELECT I.*,IG.id as ig_id, IG.nama as ig_nama ,S.id as s_id, S.nama as s_nama
+        $sql = "SELECT I.*,IG.id as ig_id, IG.nama as ig_nama, S.id as s_id, S.nama as s_nama
                 FROM item I
                 JOIN item_grp IG ON I.item_grp_id = IG.id
                 JOIN satuan S ON I.satuan_id = S.id";
@@ -28,11 +28,13 @@ include "koneksi.php";
 					<td width='5%'>No.</td>
 					<td width='5%'>Act</td>
 					<td width='10%'>ID</td>
-                    <td width='15%'>Nama</td>
+                    <td width='5%'>Warna</td>
+					<td width='15%'>Nama</td>
 					<td width='20%'>Jenis</td>
 					<td width='20%'>Satuan</td>
-                    <td width='20%'>Harga</td>
-                    <td width='20%'>warna</td>
+					<td width='20%'>Harga</td>	
+                    <td width='20%'>DiBuat</td>
+                    <td width='20%'>DiUbaht</td>
 				</tr>
 			</thead
 			<tbody>";
@@ -42,15 +44,17 @@ include "koneksi.php";
             $i++;
             echo "<tr>
             <td align='center'>$i</td>
-            <td align='csenter'>
-                <a href='detil_penjual.php?id=".$rows['id']."'>DETIL</a>
+            <td align='center'>
+                <a href='laporan_detil.php?id=".$rows['id']."'>DETIL</a>
             </td>
             <td>".$rows['id']."</td>
+            <td>".$rows['warna']."</td>
             <td>".$rows['nama']."</td>
             <td>".$rows['ig_nama']."</td>
             <td>".$rows['s_nama']."</td>
             <td>".$rows['hpp']."</td>
-            <td>".$rows['warna']."</td>
+            <td>".$rows['crt_date']."</td>
+            <td>".$rows['upd_date']."</td>
         </tr>";
         }
         echo "	</tbody>

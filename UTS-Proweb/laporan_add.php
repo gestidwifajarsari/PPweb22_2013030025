@@ -9,11 +9,13 @@ include "koneksi.php";
 </head>
 <body>
 <h2>Tambah Data</h2>
-<a href="add_penjual.php">TAMBAH</a> <a href="penjual.php">LIHAT</a>
+<a href="laporan_add.php">TAMBAH</a> <a href="laporan.php">LIHAT</a>
 <br>
-<form action="proc_penjual.php" method="post">
+<form action="laporan_proc.php" method="post">
 	ID<br>
 	<input type="text" name="id"><br>
+	Warna<br>
+	<input type="text" name="warna"><br>
 	Nama<br>
 	<input type="text" name="nama"><br>
 	Jenis<br>
@@ -38,8 +40,7 @@ include "koneksi.php";
 	</select><br>
 	Harga<br>
 	<input type="text" name="hpp"><br>
-	warna<br>
-	<input type="text" name="warna"><br>
+	
 	<input type="submit" name="proses" value="SIMPAN">
 </form>
 </body>
